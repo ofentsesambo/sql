@@ -9,8 +9,7 @@ CREATE TABLE Customer(
    Phone INT,
    Email VARCHAR(100),
    City VARCHAR(20),
-   Country VARCHAR(50),
-   PRIMARY KEY(CustomerID)
+   Country VARCHAR(50)
 );
 
 CREATE TABLE Employees(
@@ -52,8 +51,8 @@ INSERT INTO Customer(FirstName, LastName, Gender, Address, Phone, Email, City, C
 VALUES ('JOHN', 'HIBERT', 'MALE', '284 CHAUCER ST', '084789657', 'JOHN@GMAIL.COM', 'JOHANNESBURG', 'SOUTH AFRICA'),
   ('THANDO', 'SITHOLE', 'FEMALE', '240 SECT 1', '0794445584', 'THANO@GMAIL.COM', 'CAPE TOWN', 'SOUTH AFRICA'),
   ('LEON', 'GLEN', 'MALE', '81 EVERTON RD GILLITS', '0820832830', 'LEON@GMAIL.COM', 'DURBAN', 'SOUTH AFRICA'),
-  ('CHARL', 'MULLER', 'MALE', '290A DORSET ECKE', '44856872553', 'CARL.MULLER@YAHOO.COM', 'BERLIN', 'GERMANY'),
-  ('JULIA', 'STEIN', 'FEMALE', '2 WERNERRING', '448672445058', 'JS234@YAHOO.COM', 'FRANKFURT', 'GERMANY');
+  ('CHARL', 'MULLER', 'MALE', '290A DORSET ECKE', '+44856872553', 'CARL.MULLER@YAHOO.COM', 'BERLIN', 'GERMANY'),
+  ('JULIA', 'STEIN', 'FEMALE', '2 WERNERRING', '+448672445058', 'JS234@YAHOO.COM', 'FRANKFURT', 'GERMANY');
 
 INSERT INTO Employees(FirstName, LastName, Email, JobTitle)
 VALUES ('KANI', 'MATTHEW', 'MAT@GMAIL.COM', 'MANAGER'),
@@ -61,6 +60,29 @@ VALUES ('KANI', 'MATTHEW', 'MAT@GMAIL.COM', 'MANAGER'),
    ('GIDEON', 'MADUKU', 'M@GMAIL.COM', 'ACCOUNTANT');
 
 INSERT INTO Orders(OrderID, ProductID, PaymentID, FullfilledByEmployeeID, DateRequired, DateShipped, Status)
-VALUES ('1', '1', '1', '2', '05/09/2018',' ', 'Not Shipped'),
+VALUES ('1', '1', '1', '2', '05/09/2018',NULL, 'Not Shipped'),
   ('2', '1', '2', '2', '04/09/2018','04/09/2018', 'Shipped'),
-  ('3', '3', '3', '3', '06/09/2018',' ', 'Not Shipped');
+  ('3', '3', '3', '3', '06/09/2018',NULL, 'Not Shipped');
+
+INSERT INTO Payments(CustomerId, PaymentID, PaymentDate, Amount)
+VALUES (1, 1, '01-09-2018', '150.75'),
+   (5, 2,'03-09-2018', '150.75'),
+   (4, 3, '03-09-2018', '700.60');
+
+INSERT INTO Products(ProductId, ProductName, Description, BuyPrice)
+VALUES ('1', 'Harley Davidson Chopper', 'This replica features working kickstand, front suspension, gear-shift lever', '150.75'),
+     ('2', 'Classic Car', 'Turnable front wheels, steering function', '550.75'),
+     ('3', ' Sport car', 'Turnable front wheels, steering function','700.60');
+
+SELECT * from Customer
+
+SELECT Firstname FROM Customer;
+
+
+SELECT * FROM Customer WHERE CustomerID = 1;
+
+
+
+(8) SELECT * FROM Customer ORDER BY Country;
+
+  
