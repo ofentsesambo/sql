@@ -74,15 +74,50 @@ VALUES ('1', 'Harley Davidson Chopper', 'This replica features working kickstand
      ('2', 'Classic Car', 'Turnable front wheels, steering function', '550.75'),
      ('3', ' Sport car', 'Turnable front wheels, steering function','700.60');
 
-SELECT * from Customer
+(1) SELECT * from Customer
 
-SELECT Firstname FROM Customer;
+(2) SELECT Firstname FROM Customer;
 
+(3) SELECT * FROM Customer WHERE CustomerID = 1;
 
-SELECT * FROM Customer WHERE CustomerID = 1;
+(4)   UPDATE Customer 
+      SET Firstname = 'Lerato', 
+      Lastname = 'Mabitso' 
+      WHERE CustomerId = 1;
 
+(5)   DELETE from Customer WHERE CustomerId = 2;
 
+(6)   
+
+(7) SELECT max(Amount) FROM Payments;
 
 (8) SELECT * FROM Customer ORDER BY Country;
 
-  
+(9)   SELECT Buyprice FROM Products 
+      WHERE Buyprice >= 100 and
+      Buyprice <= 600;
+
+(10)  SELECT * from Customer 
+      WHERE Country = 'Germany' 
+      and City = 'Berlin';
+
+(11)  SELECT * from Customer 
+      WHERE City = 'Cape Town' 
+      or City = 'Durban';
+
+(12)  SELECT * FROM Products
+      WHERE Buyprice > 500;
+
+(13)  
+
+(14)  SELECT COUNT(distinct status)
+      FROM Orders
+      WHERE status = 'Shipped';
+
+(15)  
+
+(16)  SELECT * FROM payments
+      INNER JOIN customer
+      ON customer.customerid = payments.paymentid;
+
+(17)  
