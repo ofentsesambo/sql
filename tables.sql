@@ -87,11 +87,12 @@ VALUES ('1', 'Harley Davidson Chopper', 'This replica features working kickstand
 
 (5)   DELETE from Customer WHERE CustomerId = 2;
 
-(6)   
+(6)   SELECT count(status)
+      FROM orders;
 
-(7) SELECT max(Amount) FROM Payments;
+(7)   SELECT max(Amount) FROM Payments;
 
-(8) SELECT * FROM Customer ORDER BY Country;
+(8)   SELECT * FROM Customer ORDER BY Country;
 
 (9)   SELECT Buyprice FROM Products 
       WHERE Buyprice >= 100 and
@@ -108,16 +109,29 @@ VALUES ('1', 'Harley Davidson Chopper', 'This replica features working kickstand
 (12)  SELECT * FROM Products
       WHERE Buyprice > 500;
 
-(13)  
+(13)  SELECT SUM(amount)
+      FROM payments;
 
 (14)  SELECT COUNT(distinct status)
       FROM Orders
       WHERE status = 'Shipped';
 
-(15)  
+(15)  SELECT AVG(buyprice)/12
+      FROM products
 
-(16)  SELECT * FROM payments
-      INNER JOIN customer
-      ON customer.customerid = payments.paymentid;
 
-(17)  
+
+(16)  SELECT
+      Customer.customerid,
+      Firstname,
+      Lastname,
+      email,
+      Amount,
+      Paymentdate
+      FROM
+      Customer
+      INNER JOIN payments ON payments.customerid = customer.customerid;
+
+(17)  SELECT COUNT(description)
+      FROM products
+      WHERE description like  '%Turnable front wheels%';
